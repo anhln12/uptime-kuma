@@ -23,24 +23,25 @@ Install Uptime Kuma Inside Docker Container in Linux:
 Host network
 
 Run the following command to create a container for Uptime Kuma that uses host network:
-
+```
 mkdir -p /opt/uptime-kuma/data
-
+```
+```
 docker run -d --name=uptime-kuma --restart=always --network=host \
     -v /opt/uptime-kuma/data:/app/data \
     louislam/uptime-kuma
-    
+```    
 User-defined bridge network
 
 User-defined bridge network can be used for listening on different port. By default, Uptime Kuma service is listening on port 3001. It can be changed with -p option.
-
+```
 docker network create app-net
 
 docker run -d --name=uptime-kuma --restart=always --network=app-net \
     -p 8080:3001 \
     -v /opt/uptime-kuma/data:/app/data \
     louislam/uptime-kuma
-    
+```    
 Testing Uptime Kuma
 
 Open a web browser and go to http://<IP_ADDRESS>:8090, where <IP_ADDRESS> is the IP address of the system. For the first time, you will be asked to create the administrator account. After that, you will be redirected to the dashboard.
@@ -48,17 +49,18 @@ Open a web browser and go to http://<IP_ADDRESS>:8090, where <IP_ADDRESS> is the
 Uninstall Uptime Kuma
 
 To completely remove Uptime Kuma, remove its container:
-
+```
 docker rm --force uptime-kuma
-
+```
 Remove Uptime Kuma image:
-
+```
 docker rmi louislam/uptime-kuma
-
+```
 You can also remove Uptime Kuma data:
-
+```
 sudo rm -rf /opt/uptime-kuma
-
+```
 If a user-defined bridge network was created, you can delete it as follows:
-
+```
 docker network rm app-net
+```
