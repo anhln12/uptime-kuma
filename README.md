@@ -15,10 +15,10 @@ Uptime Kuma is an open-source tool to monitor the uptime of hosts or servers. Th
 
 This tutorial explains how to install Uptime Kuma inside a Docker container in the Linux. Commands have been tested on Ubuntu.
 
-Prepare environment
+**Prepare environment**
 Make sure you have installed Docker in your system
 
-Install Uptime Kuma Inside Docker Container in Linux:
+**Install Uptime Kuma Inside Docker Container in Linux:**
 
 Host network
 
@@ -42,11 +42,11 @@ docker run -d --name=uptime-kuma --restart=always --network=app-net \
     -v /opt/uptime-kuma/data:/app/data \
     louislam/uptime-kuma
 ```    
-Testing Uptime Kuma
+**Testing Uptime Kuma**
 
 Open a web browser and go to http://<IP_ADDRESS>:8090, where <IP_ADDRESS> is the IP address of the system. For the first time, you will be asked to create the administrator account. After that, you will be redirected to the dashboard.
 
-Uninstall Uptime Kuma
+**Uninstall Uptime Kuma**
 
 To completely remove Uptime Kuma, remove its container:
 ```
